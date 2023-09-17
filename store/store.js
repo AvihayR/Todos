@@ -32,7 +32,7 @@ function appReducer(state = initialState, action) {
         case 'SET_FILTER_BY':
             return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
         case 'LOAD_TODOS_FROM_STORAGE':
-            return { ...state, todos: action.todos }
+            return { ...state, todos: action.todos.filter(t => t.owner && state.user && t.owner._id === state.user._id || !t.owner) }
         case 'SET_LOGGED_USER':
             return { ...state, user: action.user }
         case 'LOG_OUT':

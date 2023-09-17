@@ -8,7 +8,6 @@ export function TodoPreview({ todo, onRemoveTodo, toggleIsDoneTodo }) {
     function handleChange(ev) {
         ev.stopPropagation()
         const { target } = ev
-        console.log(ev)
 
         const field = target.dataset.name
         let value = target.value

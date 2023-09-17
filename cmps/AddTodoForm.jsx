@@ -28,7 +28,7 @@ export function AddTodoForm({ onAddTodo }) {
             onAddTodo(ev, newTodoToBuild)
             editTodo(prevTodoToBuild => todoService.getEmptyTodo())
         }}>
-            <input type="text" name="title" value={newTodoToBuild.title} onChange={handleChange} placeholder="Insert new todo title here.." required={true} />
+            <input type="text" name="title" value={newTodoToBuild.title} onChange={handleChange} placeholder="📝Start Typing.. " required={true} />
             <button>Add Todo</button>
         </form>
     )

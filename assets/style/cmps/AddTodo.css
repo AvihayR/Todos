@@ -8,9 +8,10 @@
 }
 
 .todo-app .add-todo input {
-    background-color: #ffffec;
-    color: var(--clr2bg);
-    font-size: 1.2rem;
+    background-color: var(--clr2bg);
+    color: whitesmoke;
+    font-size: 1.4rem;
+    letter-spacing: 1.1px;
     border: 0;
     padding: 0.5em;
     border-radius: 0.5em;
@@ -19,11 +20,11 @@
     font-weight: 700;
 }
 
-.todo-app .add-todo input:focus {
-    background-color: lightgoldenrodyellow;
+.todo-app .add-todo input::placeholder {
+    color: whitesmoke;
+    opacity: 1;
 }
 
-.todo-app .add-todo input::placeholder {
+.todo-app .add-todo input:focus::placeholder {
     color: var(--clr2bg);
-    opacity: 1;
 }

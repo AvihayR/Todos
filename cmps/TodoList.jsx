@@ -1,5 +1,4 @@
 import { TodoPreview } from "./TodoPreview.jsx"
-
 export function TodoList({ todos, removeTodo, toggleIsDoneTodo }) {
 
     return (

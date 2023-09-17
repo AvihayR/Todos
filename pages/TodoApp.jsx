@@ -14,14 +14,13 @@ export function TodoApp() {
     const filterBy = useSelector(storeState => storeState.filterBy)
     const loggedUser = useSelector(storeState => storeState.user)
     const dispatch = useDispatch()
-
-    showSuccessMsg('hello')
+    // showSuccessMsg('hello')
 
     useEffect(() => {
         todoService.query(filterBy)
             .then((todos) => dispatch({ type: 'LOAD_TODOS_FROM_STORAGE', todos }))
             .catch(err => console.log('Error:', err))
-    }, [filterBy])
+    }, [loggedUser, filterBy])
 
     function setFilterBy(filterBy) {
         dispatch({ type: 'SET_FILTER_BY', filterBy })
