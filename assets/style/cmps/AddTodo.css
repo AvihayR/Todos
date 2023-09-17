@@ -1,0 +1,29 @@
+.todo-app .add-todo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.todo-app .add-todo input {
+    background-color: #ffffec;
+    color: var(--clr2bg);
+    font-size: 1.2rem;
+    border: 0;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    outline: 2px solid;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 700;
+}
+
+.todo-app .add-todo input:focus {
+    background-color: lightgoldenrodyellow;
+}
+
+.todo-app .add-todo input::placeholder {
+    color: var(--clr2bg);
+    opacity: 1;
+}

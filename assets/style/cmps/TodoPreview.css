@@ -1,0 +1,29 @@
+.todo-app .todo-preview {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    padding-inline: .1em;
+    cursor: pointer;
+    color: var(--clr2bg);
+}
+
+
+.todo-app .todo-preview:nth-child(even) {
+    background-color: #ebebebac;
+}
+
+.todo-app .todo-preview button {
+    margin-inline-start: auto;
+}
+
+.todo-app .todo-preview * {
+    display: inline;
+}
+
+.todo-app .todo-preview.done .todo-title {
+    text-decoration: line-through;
+    color: grey;
+}

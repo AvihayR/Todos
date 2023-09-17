@@ -1,0 +1,8 @@
+.todo-app .todo-filter {
+    background-color: rgba(211, 211, 211, 0.47);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-block-end: 3em;
+}

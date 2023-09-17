@@ -1,0 +1,5 @@
+.main-layout .todo-app {
+    max-width: min(75vw, 550px);
+    margin: auto;
+    text-align: center;
+}
