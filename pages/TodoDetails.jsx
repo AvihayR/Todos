@@ -1,4 +1,5 @@
 import { todoService } from "../services/todo.service.js"
+import { EDIT_TODO, store } from '../store/store.js'
 const { useSelector, useDispatch } = ReactRedux
 const { useState, useEffect } = React
 const { useParams, Link, useNavigate, useLocation } = ReactRouterDOM
@@ -33,7 +34,7 @@ export function TodoDetails() {
                 break;
         }
         todo = { ...todo, [field]: value }
-        dispatch({ type: 'EDIT_TODO', todo })
+        dispatch({ type: EDIT_TODO, todo })
     }
 
     return (

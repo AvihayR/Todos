@@ -1,6 +1,8 @@
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { userService } from '../services/user.service.js'
+import { SET_LOGGED_USER, LOG_OUT, store } from '../store/store.js'
+
 const { useSelector, useDispatch } = ReactRedux
 const { useState } = React
 
@@ -22,11 +24,11 @@ export function LoginSignup() {
 
     function onLogout() {
         userService.logout()
-            .then(dispatch({ type: 'LOG_OUT' }))
+            .then(dispatch({ type: LOG_OUT }))
     }
 
     function onSetUser(user) {
-        dispatch({ type: 'SET_LOGGED_USER', user })
+        dispatch({ type: SET_LOGGED_USER, user })
     }
 
     function handleCredentialsChange(ev) {

@@ -1,4 +1,4 @@
-const { useSelector, useDispatch } = ReactRedux
+const { useSelector } = ReactRedux
 
 export function TodoProgress({ todos }) {
     const loggedUser = useSelector(storeState => storeState.user)

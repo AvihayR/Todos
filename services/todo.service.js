@@ -1,7 +1,6 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import demoData from './demoData.js'
-const { useSelector, useDispatch } = ReactRedux
 
 const STORAGE_KEY = 'todoDB'
 

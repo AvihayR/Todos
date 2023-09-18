@@ -1,6 +1,8 @@
 import { todoService } from "../services/todo.service.js"
 import { LoginSignup } from "./LoginSignup.jsx"
 import { TodoProgress } from "./TodoProgress.jsx"
+import { LOAD_TODOS_FROM_STORAGE } from '../store/store.js'
+
 const { useSelector, useDispatch } = ReactRedux
 const { useEffect, useState } = React
 const { Link } = ReactRouterDOM
@@ -12,7 +14,7 @@ export function AppHeader() {
 
     useEffect(() => {
         todoService.query()
-            .then((todos) => dispatch({ type: 'LOAD_TODOS_FROM_STORAGE', todos }))
+            .then((todos) => dispatch({ type: LOAD_TODOS_FROM_STORAGE, todos }))
             .then(console.log)
             .catch(err => console.log('Error:', err))
     }, [])
