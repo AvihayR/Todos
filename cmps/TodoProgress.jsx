@@ -4,7 +4,6 @@ export function TodoProgress({ todos }) {
     const loggedUser = useSelector(storeState => storeState.userModule.user)
     const doneTodos = todos.filter(t => t.isDone)
 
-    console.log('Lengths:', doneTodos.length, todos.length)
     if (todos.length === 0 && doneTodos.length === 0) return <h2>No todos yet, Try adding one!</h2>
     else return (
         <label className="progress">

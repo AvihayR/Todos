@@ -10,19 +10,10 @@ const rootReducer = combineReducers({
     todoModule: todoReducer
 })
 
-const initialState = {
-    todos: [],
-    filterBy: {},
-    user: userService.getLoggedinUser(),
-}
-
-
-
 const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : () => { }
 
 export const store = createStore(rootReducer, middleware)
-window.gStroe = store.getState()
 
 store.subscribe(() => {
     console.log('Current state is:', store.getState())

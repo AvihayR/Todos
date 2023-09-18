@@ -1,9 +1,7 @@
-
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-import { userService } from '../services/user.service.js'
-import { SET_LOGGED_USER, LOG_OUT, store } from '../store/reducers/user.reducer.js'
+import { logIn, logOut, signUp } from '../store/actions/user.action.js'
 
-const { useSelector, useDispatch } = ReactRedux
+const { useSelector } = ReactRedux
 const { useState } = React
 
 function getEmptyCredentials() {
@@ -15,20 +13,14 @@ function getEmptyCredentials() {
 }
 
 export function LoginSignup() {
-
     const [credentials, setCredentials] = useState(getEmptyCredentials())
     const [isSignupState, setIsSignupState] = useState(false)
-    const dispatch = useDispatch()
     const loggedUser = useSelector(storeState => storeState.userModule.user)
-    // console.log(loggedUser)
 
     function onLogout() {
-        userService.logout()
-            .then(dispatch({ type: LOG_OUT }))
-    }
-
-    function onSetUser(user) {
-        dispatch({ type: SET_LOGGED_USER, user })
+        logOut()
+            .then(res => console.log('Successfully logged out!'))
+            .catch(err => console.log(err))
     }
 
     function handleCredentialsChange(ev) {
@@ -39,20 +31,15 @@ export function LoginSignup() {
 
     function onSubmit(ev) {
         ev.preventDefault()
-        const method = isSignupState ? 'signup' : 'login'
-
-        console.log(method)
-
-        return userService[method](credentials)
-            .then((user) => {
-                onSetUser(user)
-                // showSuccessMsg(`Welcome ${user.fullname}`)
-                console.log(`Welcome, ${user}`)
-            })
-            .catch(err => {
-                // showErrorMsg('OOps try again')
-                console.log('Oops, try again')
-            })
+        if (isSignupState) {
+            return signUp(credentials)
+                .then(console.log('Signed up, Welcome!'))
+                .catch(err => console.log(err))
+        } else {
+            logIn(credentials)
+                .then(console.log('Welcome back!'))
+                .catch(err => console.log(err))
+        }
     }
 
     function onToggleSignupState() {
