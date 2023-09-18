@@ -23,7 +23,7 @@ export function todoReducer(state = initialState, action = {}) {
             return { ...state, todos: state.todos.filter(t => t._id !== action._id) }
         case TOGGLE_IS_DONE:
         case EDIT_TODO:
-            return { ...state, todos: state.todos.map(todo => todo._id === action._id ? action.todo : todo) }
+            return { ...state, todos: state.todos.map(todo => todo._id === action.todo._id ? action.todo : todo) }
         case SET_FILTER_BY:
             return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
         case LOAD_TODOS_FROM_STORAGE:

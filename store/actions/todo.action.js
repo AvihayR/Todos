@@ -5,7 +5,7 @@ import { store } from "../store.js"
 
 const loggedUser = userService.getLoggedinUser()
 
-export function loadTodos(filterBy) {
+export function loadTodos(filterBy = {}) {
     return todoService.query(filterBy)
         .then((todos) => {
             store.dispatch({ type: LOAD_TODOS_FROM_STORAGE, todos })
@@ -37,6 +37,13 @@ export function removeTodo(todoId) {
         })
 }
 
+export function saveTodo(todo) {
+    return todoService.save(todo)
+}
+
+export function editTodo(todo) {
+    return store.dispatch({ type: TOGGLE_IS_DONE, todo })
+}
 
 export function toggleIsDone(todo) {
     todo.isDone = !todo.isDone

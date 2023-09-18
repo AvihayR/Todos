@@ -1,11 +1,8 @@
-import { todoService } from "../services/todo.service.js"
-import { EDIT_TODO, store } from '../store/store.js'
-const { useSelector, useDispatch } = ReactRedux
-const { useState, useEffect } = React
-const { useParams, Link, useNavigate, useLocation } = ReactRouterDOM
+import { editTodo, saveTodo } from "../store/actions/todo.action.js"
+const { useSelector } = ReactRedux
+const { useParams, useNavigate } = ReactRouterDOM
 
 export function TodoDetails() {
-    const dispatch = useDispatch()
     const navigate = useNavigate()
     const todoId = useParams().todoId
     const todos = useSelector(storeState => storeState.todoModule.todos)
@@ -13,7 +10,7 @@ export function TodoDetails() {
 
     function saveChanges(ev) {
         ev.preventDefault()
-        todoService.save(todo)
+        saveTodo(todo)
             .then(() => { navigate('/') })
     }
 
@@ -34,7 +31,7 @@ export function TodoDetails() {
                 break;
         }
         todo = { ...todo, [field]: value }
-        dispatch({ type: EDIT_TODO, todo })
+        editTodo(todo)
     }
 
     return (
