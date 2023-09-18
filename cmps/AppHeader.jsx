@@ -1,7 +1,7 @@
 import { todoService } from "../services/todo.service.js"
 import { LoginSignup } from "./LoginSignup.jsx"
 import { TodoProgress } from "./TodoProgress.jsx"
-import { LOAD_TODOS_FROM_STORAGE } from '../store/store.js'
+import { LOAD_TODOS_FROM_STORAGE } from '../store/reducers/todo.reducer.js'
 
 const { useSelector, useDispatch } = ReactRedux
 const { useEffect, useState } = React
@@ -9,8 +9,8 @@ const { Link } = ReactRouterDOM
 
 export function AppHeader() {
     const dispatch = useDispatch()
-    const loggedUser = useSelector(storeState => storeState.user)
-    const todos = useSelector(storeState => storeState.todos)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
+    const todos = useSelector(storeState => storeState.todoModule.todos)
 
     useEffect(() => {
         todoService.query()

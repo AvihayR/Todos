@@ -1,7 +1,7 @@
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { userService } from '../services/user.service.js'
-import { SET_LOGGED_USER, LOG_OUT, store } from '../store/store.js'
+import { SET_LOGGED_USER, LOG_OUT, store } from '../store/reducers/user.reducer.js'
 
 const { useSelector, useDispatch } = ReactRedux
 const { useState } = React
@@ -19,7 +19,7 @@ export function LoginSignup() {
     const [credentials, setCredentials] = useState(getEmptyCredentials())
     const [isSignupState, setIsSignupState] = useState(false)
     const dispatch = useDispatch()
-    const loggedUser = useSelector(storeState => storeState.user)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
     // console.log(loggedUser)
 
     function onLogout() {

@@ -3,17 +3,16 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { TodoList } from "../cmps/TodoList.jsx"
 import { TodoFilter } from "../cmps/TodoFilter.jsx"
 import { AddTodoForm } from "../cmps/AddTodoForm.jsx"
-import { SET_FILTER_BY, ADD_TODO, REMOVE_TODO, TOGGLE_IS_DONE, LOAD_TODOS_FROM_STORAGE, store } from '../store/store.js'
+import { SET_FILTER_BY, ADD_TODO, REMOVE_TODO, TOGGLE_IS_DONE, LOAD_TODOS_FROM_STORAGE, store } from '../store/reducers/todo.reducer.js'
 
 const { useSelector, useDispatch } = ReactRedux
 const { useEffect } = React
 
 
-
 export function TodoApp() {
-    const todos = useSelector(storeState => storeState.todos)
-    const filterBy = useSelector(storeState => storeState.filterBy)
-    const loggedUser = useSelector(storeState => storeState.user)
+    const todos = useSelector(storeState => storeState.todoModule.todos)
+    const filterBy = useSelector(storeState => storeState.todoModule.filterBy)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
     const dispatch = useDispatch()
     // showSuccessMsg('hello')
 

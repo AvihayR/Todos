@@ -8,7 +8,7 @@ export function TodoDetails() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const todoId = useParams().todoId
-    const todos = useSelector(storeState => storeState.todos)
+    const todos = useSelector(storeState => storeState.todoModule.todos)
     let todo = todos.find(t => t._id === todoId)
 
     function saveChanges(ev) {

@@ -1,8 +1,7 @@
 const { useSelector } = ReactRedux
 
 export function TodoProgress({ todos }) {
-    const loggedUser = useSelector(storeState => storeState.user)
-    // const todos = useSelector(storeState => storeState.todos)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
     const doneTodos = todos.filter(t => t.isDone)
 
     console.log('Lengths:', doneTodos.length, todos.length)
