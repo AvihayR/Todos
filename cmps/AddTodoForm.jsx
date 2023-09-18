@@ -29,7 +29,7 @@ export function AddTodoForm({ onAddTodo }) {
             editTodo(prevTodoToBuild => todoService.getEmptyTodo())
         }}>
             <input type="text" name="title" value={newTodoToBuild.title} onChange={handleChange} placeholder="📝Start Typing.. " required={true} />
-            <button>Add Todo</button>
+            <button className="add-todo-btn">Add Todo</button>
         </form>
     )
 }

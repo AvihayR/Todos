@@ -3,3 +3,7 @@
     margin: auto;
     text-align: center;
 }
+
+.todo-app .no-todos-indication {
+    font-size: 1.6rem;
+}

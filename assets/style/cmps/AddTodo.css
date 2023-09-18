@@ -28,3 +28,12 @@
 .todo-app .add-todo input:focus::placeholder {
     color: var(--clr2bg);
 }
+
+.add-todo .add-todo-btn {
+    background-color: lightgrey;
+    border: 2px solid var(--clr2bg);
+}
+
+.add-todo .add-todo-btn:hover {
+    background-color: var(--clr2bg);
+}
