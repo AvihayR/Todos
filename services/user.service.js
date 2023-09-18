@@ -25,7 +25,13 @@ function login({ username, password }) {
         .then(users => {
             const user = users.find(user => user.username === username && user.password === password)
             if (user) return _setLoggedinUser(user)
-            else return Promise.reject('Invalid login')
+            else {
+                throw new Error('Something went wrong..')
+            }
+        })
+        .catch(err => {
+            console.log('catch login', err)
+            throw err
         })
 }
 

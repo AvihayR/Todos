@@ -3,6 +3,7 @@ const { Route, Routes } = ReactRouterDOM
 const { Provider } = ReactRedux
 
 import { AppHeader } from './cmps/AppHeader.jsx'
+import { UserMsg } from './cmps/UserMsg.jsx'
 // import { AppFooter } from './cmps/AppFooter.jsx'
 import { TodoApp } from './pages/TodoApp.jsx'
 import { TodoDetails } from './pages/TodoDetails.jsx'
@@ -26,6 +27,7 @@ export function App() {
                         </Routes>
                     </main>
                 </section>
+                <UserMsg />
                 {/* <AppFooter /> */}
             </Router>
         </Provider>

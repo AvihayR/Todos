@@ -26,7 +26,7 @@ export function TodoApp() {
         ev.preventDefault()
         addTodoAction(todo)
             .then(showSuccessMsg('Added new todo!'))
-            .catch(showErrorMsg('Could\'nt add a new todo..'))
+            .catch(err => showErrorMsg(err))
     }
 
     function onRemoveTodo(todoId) {
@@ -37,7 +37,11 @@ export function TodoApp() {
 
     function onToggleIsDoneTodo(todo) {
         toggleIsDone(todo)
-            .catch(err => console.log('Error:', err))
+            .then(res => {
+                const txt = !todo.isDone ? 'Unmarked todo' : 'Marked Todo as done!'
+                showSuccessMsg(txt)
+            })
+            .catch(err => showErrorMsg(err))
     }
 
     return (

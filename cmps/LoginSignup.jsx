@@ -1,4 +1,4 @@
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { logIn, logOut, signUp } from '../store/actions/user.action.js'
 
 const { useSelector } = ReactRedux
@@ -19,8 +19,8 @@ export function LoginSignup() {
 
     function onLogout() {
         logOut()
-            .then(res => console.log('Successfully logged out!'))
-            .catch(err => console.log(err))
+            .then(res => showSuccessMsg('Logged out!'))
+            .catch(err => showErrorMsg(err))
     }
 
     function handleCredentialsChange(ev) {
@@ -33,12 +33,12 @@ export function LoginSignup() {
         ev.preventDefault()
         if (isSignupState) {
             return signUp(credentials)
-                .then(console.log('Signed up, Welcome!'))
+                .then(showSuccessMsg('Signed up successfully!'))
                 .catch(err => console.log(err))
         } else {
             logIn(credentials)
-                .then(console.log('Welcome back!'))
-                .catch(err => console.log(err))
+                .then(res => showSuccessMsg(`Logged in successfully!`))
+                .catch(err => showErrorMsg(`Error: ${err}`))
         }
     }
 

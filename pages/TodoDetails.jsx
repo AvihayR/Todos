@@ -1,3 +1,4 @@
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { editTodo, saveTodo } from "../store/actions/todo.action.js"
 const { useSelector } = ReactRedux
 const { useParams, useNavigate } = ReactRouterDOM
@@ -12,6 +13,8 @@ export function TodoDetails() {
         ev.preventDefault()
         saveTodo(todo)
             .then(() => { navigate('/') })
+            .then(showSuccessMsg('Saved todo!'))
+            .catch(err => showErrorMsg(err))
     }
 
     function handleChange({ target }) {
