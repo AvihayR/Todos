@@ -56,7 +56,7 @@ export function LoginSignup() {
             </section>
             :
             <div className="login-page">
-                <h2 className="login-signup-reminder">'Login / Sign up to save Private todos!'</h2>
+                <h2 className="login-signup-reminder">Login / Sign up to save Private todos!</h2>
                 <form className="login-form" onSubmit={onSubmit}>
                     <input
                         type="text"
